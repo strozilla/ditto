@@ -1,6 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import DispatchContext from '../DispatchContext'
+import StateContext from '../StateContext'
 
 const HeaderLoggedIn = () => {
+  const appDispatch = useContext(DispatchContext)
+  const appState = useContext(StateContext)
+
+
+function handleLogout() {
+  appDispatch({type: "logout"})
+}
+
   return (
     <div className=" container d-flex justify-content-end">
    <div className="row my-3 my-md-0">
@@ -12,12 +23,12 @@ const HeaderLoggedIn = () => {
             <span className="chat-count-badge text-white"> </span>
           </span>
           <a href="#" className="mr-3">
-            <img className="small-header-avatar" style={{border:'2px solid #ffff'}} src="https://gravatar.com/avatar/b9408a09298632b5151200f3449434ef?s=128" />
+            <img className="small-header-avatar" style={{border:'2px solid #ffff'}} src={appState.user.avatar} />
           </a>
-          <a className="btn btn-sm btn-success mr-2" style={{border:'1px solid #ffff'}} href="/create-post">
+          <Link className="btn btn-sm btn-success mr-2" style={{border:'1px solid #ffff'}} to="/create-post">
             Create Post
-          </a>
-          <button className="btn btn-sm btn-secondary" style={{border:'1px solid #ffff', color: '#ffc06e'}}>
+          </Link>
+          <button onClick={handleLogout} className="btn btn-sm btn-secondary" style={{border:'1px solid #ffff', color: '#ffc06e'}}>
             Sign Out
           </button>
       </div>

@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import HeaderLoggedOut from './HeaderLoggedOut'
 import HeaderLoggedIn from './HeaderLoggedIn';
+import StateContext from '../StateContext'
+
 
 function Header() {
-  const [ loggedIn, setLoggedIn] = useState()
+    const appState = useContext(StateContext)
 
 
     return (
@@ -15,7 +17,7 @@ function Header() {
             <img src='../images/logo.png' width={75}></img>
           </Link>
         </h4>
-          {loggedIn ? <HeaderLoggedIn /> : <HeaderLoggedOut setLoggedIn={setLoggedIn}/>}
+          {appState.loggedIn ? <HeaderLoggedIn /> : <HeaderLoggedOut />}
       </div>
     </header>
     )
