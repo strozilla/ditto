@@ -5,7 +5,7 @@ const Page = (props) => {
 useEffect(() => {
     document.title = `${props.title} | dittoApp`
     window.scrollTo(0,0)
-  }, [])
+  }, [props.title])
 
 
   return (

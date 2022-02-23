@@ -1,34 +1,68 @@
-import React, { useContext } from 'react'
-import DispatchContext from '../DispatchContext'
-import StateContext from '../StateContext'
+import React, { useContext, useEffect, useState } from 'react'
 import Page from './Page'
+import { useParams, Link } from 'react-router-dom'
+import Axios from 'axios'
+import ReactMarkdown from 'react-markdown'
+import ReactToolTip from 'react-tooltip'
+import NotFound from './NotFound'
 
 const ViewSinglePost = () => {
-  const current = new Date()
-  const date = `${current.getMonth()+1}/${current.getDate()}/${current.getFullYear()}`
-  const appDispatch = useContext(DispatchContext)
-  const appState = useContext(StateContext)
+  const {id} = useParams()
+  const [isLoading, setIsLoading] = useState(true)
+  const [post, setPost] = useState()
+  
+
+  useEffect(() => {
+   const ourRequest = Axios.CancelToken.source()
+    
+
+    async function fetchPost() {
+      try {
+        const response = await Axios.get(`/post/${id}`, { cancelToken: ourRequest.token })
+        setPost(response.data)
+        setIsLoading(false)
+      } catch (e) {
+        console.log(e)
+      }
+    }
+   fetchPost()
+   return () => {
+    ourRequest.cancel()
+   }
+}, [])
 
   
+  if (!isLoading && !post) {
+    return <NotFound />
+  }
+
+  if (isLoading) return <Page title="..."><div>Loading...</div></Page>
+
+
+const date = new Date(post.createdDate)
+        const dateFormatted = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
+
   return (
-    <Page title="Test Title">
+    <Page title={post.title}>
       <div className="d-flex justify-content-between">
-        <h2>{appDispatch({type: "title"})}</h2>
+        <h2>{post.title}</h2>
         <span className="pt-2">
-          <a href="#" className="text-primary mr-2" title="Edit"><i className="fas fa-edit"></i></a>
-          <a className="delete-post-button text-danger" title="Delete"><i className="fas fa-trash"></i></a>
+          <Link to={`/post/${post._id}/edit`} data-tip="Edit" data-for="edit" className="text-primary mr-2"><i className="fas fa-edit"></i></Link>
+          <ReactToolTip id='edit' className='custom-tooltip' />{" "}
+          <a data-tip="Delete" data-for="delete" className="delete-post-button text-danger"><i className="fas fa-trash"></i></a>
+          <ReactToolTip id='delete' className='custom-tooltip' />
         </span>
       </div>
 
       <p className="text-muted small mb-4">
-        <a href="#">
-          <img className="avatar-tiny" src={localStorage.getItem("dittoappAvatar")} />
-        </a>
-        Posted by <a href="#">{localStorage.getItem("dittoappUsername")}</a> on {date}
+        <Link to={`/profile/${post.author.username}`}>
+          <img className="avatar-tiny" src={post.author.avatar} />
+        </Link>
+        Posted by <Link to={`/profile/${post.author.username}`}>{post.author.username}</Link> on {dateFormatted}
       </p>
 
       <div className="body-content">
-        <p>{appDispatch.title}</p>
+        <ReactMarkdown children={post.body} allowedElements={["p", "br", "strong", "em", "h1", "h2", "h3", "h4", "h5", "h6", "ul", "ol", "li"]} />
         
       </div>
     </Page>

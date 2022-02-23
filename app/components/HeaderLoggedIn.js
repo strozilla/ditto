@@ -22,9 +22,9 @@ function handleLogout() {
             <i className="fas fa-comment"></i>
             <span className="chat-count-badge text-white"> </span>
           </span>
-          <a href="#" className="mr-3">
+          <Link to={`/profile/${appState.user.username}`} className="mr-3">
             <img className="small-header-avatar" style={{border:'2px solid #ffff'}} src={appState.user.avatar} />
-          </a>
+          </Link>
           <Link className="btn btn-sm btn-success mr-2" style={{border:'1px solid #ffff'}} to="/create-post">
             Create Post
           </Link>
