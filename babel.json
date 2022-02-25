@@ -1,6 +1,13 @@
 {
   "stories": [],
   "versions": [],
-  "backups": [],
+  "backups": [
+    {
+      "timestamp": 1645793554496,
+      "localPath": "C:\\Users\\Strozilla\\Documents\\BabelWorkspaceBackups\\babel-2022-02-25.backup.zip",
+      "cloudProviders": [],
+      "id": "54b9b13c-d890-4ce8-bc77-fa7af2b97b8c"
+    }
+  ],
   "activity": []
 }
