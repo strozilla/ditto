@@ -6,6 +6,8 @@
 	"homepage": "https://strozilla.github.io/ditto/",
 	"scripts": {
 		"dev": "webpack serve",
+		"webpackBuild": "webpack",
+		"previewDist": "node previewDist",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [],

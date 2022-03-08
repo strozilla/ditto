@@ -14,7 +14,7 @@ function Header() {
       <div className="container d-flex flex-column flex-md-row align-items-center p-1">
         <h4 className="my-0 mr-md-auto font-weight-normal">
           <Link to="/" className="text-white">
-            <img src='../images/logo.png' width={75}></img>
+            <img src="../images/logo.png" width={75}></img>
           </Link>
         </h4>
           {appState.loggedIn ? <HeaderLoggedIn /> : <HeaderLoggedOut />}
