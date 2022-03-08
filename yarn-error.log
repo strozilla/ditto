@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Strozilla\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add express
+  C:\Program Files\nodejs\node.exe C:\Users\Strozilla\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js remove gh-pages
 
 PATH: 
   C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\mingw-w64\mingw32\bin;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Condusiv Technologies\ExpressCache\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Users\Strozilla\Git\cmd;C:\Program Files\nodejs\;C:\Users\Strozilla\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\Strozilla\AppData\Local\Programs\Python\Python39\;C:\Users\Strozilla\AppData\Local\Microsoft\WindowsApps;;C:\Users\Strozilla\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Strozilla\AppData\Local\hyper\app-3.0.2\resources\bin;C:\Users\Strozilla\AppData\Local\Programs\mongosh\;C:\Program Files (x86)\Brackets\;C:\Users\Strozilla\AppData\Roaming\npm
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, lstat 'C:\Users\Strozilla\complex-react-app\node_modules\.yarn-integrity'
+  Error: EPERM: operation not permitted, lstat 'C:\Users\Strozilla\complex-react-app\node_modules\@babel\code-frame\LICENSE'
 
 npm manifest: 
   {
@@ -26,6 +26,7 @@ npm manifest:
   	"scripts": {
   		"dev": "webpack serve",
   		"webpackBuild": "webpack",
+  		"previewDist": "node previewDist",
   		"test": "echo \"Error: no test specified\" && exit 1"
   	},
   	"keywords": [],
@@ -58,10 +59,7 @@ npm manifest:
   		"webpack-cli": "^4.9.1",
   		"webpack-dev-server": "^4.7.3"
   	},
-  	"devDependencies": {
-  		"gh-pages": "^3.2.3",
-  		"react-scripts": "^5.0.0"
-  	}
+  	"devDependencies": {}
   }
 
 yarn manifest: 
