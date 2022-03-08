@@ -7774,8 +7774,6 @@ react-router@6.2.1:
   dependencies:
     history "^5.2.0"
 
-
-
 react-tooltip@^4.2.21:
   version "4.2.21"
   resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-4.2.21.tgz#840123ed86cf33d50ddde8ec8813b2960bfded7f"
