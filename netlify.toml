@@ -3,7 +3,7 @@
   to = "/index.html"
   status = 200
 
-[[build]]
+[build]
   base = ""
   publish = "build"
   command = "yarn run webpackBuild"
