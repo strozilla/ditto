@@ -5,4 +5,5 @@
 
 [build]
   base = ""
+  publish = "previewDist.js"
   command = "yarn run webpackBuild"
