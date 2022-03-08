@@ -5,5 +5,4 @@
 
 [build]
   base = ""
-  publish = "index.html"
   command = "yarn run webpackBuild"
